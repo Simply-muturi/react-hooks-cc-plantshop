@@ -13,11 +13,11 @@ function PlantPage() {
       .then(data => setPlants(data));
   }, []);
 
-  const AddPlant = (newPlant) => {
+  const addPlant = (newPlant) => {
     setPlants([...plants, newPlant]);
   };
 
-  const DeletePlant = (id) => {
+  const deletePlant = (id) => {
     fetch(`http://localhost:6001/plants/${id}`, {
       method: "DELETE"
     })
@@ -26,7 +26,7 @@ function PlantPage() {
       });
   };
 
-  const UpdatePrice = (id, newPrice) => {
+  const updatePrice = (id, newPrice) => {
     fetch(`http://localhost:6001/plants/${id}`, {
       method: "PATCH",
       headers: {
@@ -48,12 +48,12 @@ function PlantPage() {
 
   return (
     <main>
-      <NewPlantForm onAddPlant={AddPlant} />
+      <NewPlantForm onAddPlant={addPlant} />
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <PlantList 
         plants={filteredPlants} 
-        onDeletePlant={DeletePlant}
-        onUpdatePrice={UpdatePrice}
+        onDeletePlant={deletePlant}
+        onUpdatePrice={updatePrice}
       />
     </main>
   );

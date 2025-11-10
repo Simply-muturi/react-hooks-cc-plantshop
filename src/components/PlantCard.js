@@ -34,12 +34,12 @@ function PlantCard({ plant, onDeletePlant, onUpdatePrice }) {
           <button onClick={() => setIsEditingPrice(false)}>Cancel</button>
         </div>
       ) : (
-        <p>
-          Price: ${plant.price}
+        <>
+          <p>Price: {plant.price}</p>
           <button onClick={() => setIsEditingPrice(true)} style={{ marginLeft: '10px' }}>
             Edit Price
           </button>
-        </p>
+        </>
       )}
       {inStock ? (
         <button className="primary" onClick={handleToggleStock}>In Stock</button>

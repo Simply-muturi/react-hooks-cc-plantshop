@@ -4,6 +4,7 @@ import PlantCard from "./PlantCard";
 function PlantList({ plants, onDeletePlant, onUpdatePrice }) {
   return (
     <ul className="cards">
+      
       {plants.map(plant => (
         <PlantCard 
           key={plant.id} 
